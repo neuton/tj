@@ -1,0 +1,39 @@
+%tag {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 10px 4px;
+    border-radius: 5px;
+    background: #ee4842;
+    color: white;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+a.tag {
+    @extend %tag;
+}
+
+a.tag-small {
+    @extend %tag;
+    padding: 3px 8px 3px;
+    font-size: 12px;
+    background: #ff6868;
+}
+
+a.tag-large {
+    @extend %tag;
+    padding: 0px 11px 2px;
+    font-size: 26px;
+    background: grey;
+}
+
+.fragment-filtered {
+    display: none;
+    &:target {
+        display: inline;
+    }
+}

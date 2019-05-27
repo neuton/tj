@@ -1,18 +1,13 @@
 ---
 layout: default
+permalink: /tag/
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
-
-  {{ content }}
-
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+{% for tag in site.tags %}
+  <div id="{{tag[0]}}" class="fragment-filtered">
+    <h2 class="post-list-heading"> Tag filter: <a class="tag-large">{{tag[0]}}</a> </h2>
     <ul class="post-list">
-      {%- for post in site.posts -%}
+      {% for post in tag[1] %}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -30,8 +25,7 @@ layout: default
           {{ post.excerpt }}
         {%- endif -%}
       </li>
-      {%- endfor -%}
+      {% endfor %}
     </ul>
-  {%- endif -%}
-
-</div>
+  </div>
+{% endfor %}
